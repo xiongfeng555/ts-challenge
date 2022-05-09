@@ -1,5 +1,5 @@
 type Chainable<T extends object = {}> = {
-  option<K extends string = string, V = any>(
+  option<K extends string, V>(
     key: K extends keyof T ? never : K,
     value: V,
   ): Chainable<
