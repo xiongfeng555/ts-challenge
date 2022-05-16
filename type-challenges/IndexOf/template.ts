@@ -1,0 +1,16 @@
+/*
+ * @Author: xiongfeng '343138759@qq.com'
+ * @Date: 2022-05-16 20:19:49
+ * @LastEditors: xiongfeng '343138759@qq.com'
+ * @LastEditTime: 2022-05-16 20:27:55
+ * @FilePath: \Typescript练习d:\王者农药plus\web前端\ts-challenge\type-challenges\IndexOf\template.ts
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ */
+type IndexOf<T extends any[], R, U extends number[] = []> = T extends [
+  infer a,
+  ...infer b
+]
+  ? Equal<a, R> extends true
+    ? U["length"]
+    : IndexOf<b, R, [...U, 0]>
+  : -1;
